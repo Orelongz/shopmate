@@ -1,0 +1,56 @@
+.navbar {
+  background-color : #fff;
+  border-radius: 5px;
+  border: 1px solid rgba(238, 238, 238, 0.5);
+  box-shadow: 5px 10px 20px -20px rgba(85, 172, 238, 1);
+  padding: 20px 0;
+
+  li {
+    cursor: pointer;
+
+    &:hover:not(:nth-last-child(-n+2)) {
+      color: rgb(224, 48, 77);
+    }
+
+    &:not(:last-child):not(#brand) {
+      margin-right: 15px;
+    }
+  }
+  
+  #brand {
+    text-transform: uppercase;
+    color: rgb(224, 48, 77);
+    letter-spacing: 0.3rem;
+    font-size: 1.3em;
+    margin: 0 auto;
+  }
+  
+  #search {
+    border: 1px solid #998484;
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  #cart {
+    position: relative;
+  
+    .badge {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      padding: 5px 10px;
+      border-radius: 50%;
+      background: red;
+      color: white;
+      transform: scale(0.7);
+    }
+  }
+  
+  @media all and (max-width: 600px) {
+    li {
+      text-align: center;
+      flex-basis: 100%;
+      padding-top: 5px;
+    }
+  }
+}

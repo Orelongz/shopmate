@@ -1,0 +1,27 @@
+footer {
+  background-color : #fff;
+  border: 1px solid rgba(238, 238, 238, 0.5);
+  box-shadow: 5px 10px 20px -20px rgb(173, 181, 187);
+  padding: 20px 0;
+  
+  .column {
+    flex: 1 0 auto;
+
+    p {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    li {
+      color: rgb(114, 109, 109);
+    }
+  }
+
+  @media all and (max-width: 600px) {
+    .column {
+      text-align: center;
+      flex-basis: 100%;
+      padding-top: 5px;
+    }
+  }
+}

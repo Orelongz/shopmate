@@ -1,0 +1,131 @@
+.home {
+  .header {
+    background: #efefef url('https://images.unsplash.com/photo-1481495278953-0967c9759b78?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80') no-repeat fixed center;
+    height: 60vh;
+    background-size: cover;
+    position: relative;
+
+    .desc {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.3rem;
+      line-height: 50px;
+      background: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      padding: 20px 50px;
+      border-radius: 5px;
+
+      .desc-text {
+        span {
+          display: block;
+          text-transform: uppercase;
+          color: rgb(224, 48, 77);
+          letter-spacing: 0.3rem;
+          margin: 0 auto;
+          font-size: 2rem;
+        }
+      }
+
+      .view-all-products {
+        border-radius: 5px;
+        background: rgb(224, 48, 77);
+        cursor: pointer;
+        padding: 5px 10px;
+        color: white;
+        display: inline-block;
+      }
+    }
+  }
+
+  .content {
+
+    .product-listing-container {
+      min-height: 40vh;
+      padding: 50px 0;
+
+
+      .products-contatiner {
+        .filter {
+          flex: 20%;
+
+          .reset-filter {
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
+            padding: 5px 35px;
+            color: white;
+            background-color: rgb(224, 48, 77);
+            cursor: pointer;
+          }
+        }
+  
+        .products-listing {
+          flex: 80%;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-start;
+  
+          .product {
+            margin: 10px 10px;
+            flex: 0 1 20%;
+            box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.5);
+
+            .product-image {
+              width: 100%;
+            }
+
+            .add-to-cart {
+              width: 100%;
+              padding: 10px;
+              color: white;
+              background-color: rgb(224, 48, 77);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .grey-icon {
+        color: #ababab;
+      }
+    }
+
+    .discount {
+      background: #efefef;
+      padding: 50px 0;
+      
+      .discount-content {
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+    
+        .subscription-form {
+          width: 100%;
+          font-size: 1.2rem;
+    
+          input[type=text] {
+            width: 50%;
+            border-radius: 20px;
+            outline: none;
+            padding: 10px;
+            border: 1px solid #ababab;
+          }
+    
+          input[type=submit] {
+            width: 20%;
+            margin-left: 5%;
+            border: none;
+            border-radius: 20px;
+            background: rgb(224, 48, 77);
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+          }
+        }
+      }
+    }
+
+  }
+}

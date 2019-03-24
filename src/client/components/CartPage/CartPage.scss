@@ -1,0 +1,30 @@
+.grey-icon {
+  color: #ababab;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+table {
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.clear-cart {
+  padding: 10px;
+  color: white;
+  height: 35px;
+  border-radius: 5px;
+  background-color: rgb(224, 48, 77);
+  cursor: pointer;
+}
