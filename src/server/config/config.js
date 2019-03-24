@@ -18,6 +18,12 @@ module.exports = {
     define: { timestamps: false }
   },
   production: {
-    use_env_variable: 'DATABASE_URL'
+    username: process.env.PROD_DBUSER,
+    password: process.env.PROD_PWORD,
+    database: process.env.PROD_DB_DATABASE,
+    host: process.env.PROD_DB_HOST,
+    dialect: process.env.PROD_DB_DIALECT,
+    reconnect: true,
+    define: { timestamps: false }
   }
 };
