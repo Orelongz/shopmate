@@ -447,7 +447,7 @@ CREATE TABLE `shopping_cart` (
   `added_on` datetime NOT NULL,
   PRIMARY KEY (`item_id`),
   KEY `idx_shopping_cart_cart_id` (`cart_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -483,6 +483,10 @@ LOCK TABLES `tax` WRITE;
 INSERT INTO `tax` VALUES (1,'Sales Tax at 8.5%',8.50),(2,'No Tax',0.00);
 /*!40000 ALTER TABLE `tax` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'shopmate'
+--
 
 --
 -- Dumping routines for database 'shopmate'
@@ -2777,4 +2781,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-24 23:11:52
+-- Dump completed on 2019-03-25  1:28:05

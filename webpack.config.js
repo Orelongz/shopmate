@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 const cleanWebpack = new CleanWebpackPlugin(['dist']);
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -16,12 +15,6 @@ const cssPlugin = new MiniCssExtractPlugin({
 const styleLoader = (
   process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
 );
-const dotenvPlugin = new Dotenv({
-  path: './env',
-  safe: true,
-  systemvars: true,
-  silent: true
-});
 
 module.exports = {
   devtool: 'source-map',
@@ -63,11 +56,11 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     compress: true,
-    // open: true,
+    open: true,
     port: 8000,
     proxy: {
       '/api': 'http://localhost:4000'
     }
   },
-  plugins: [dotenvPlugin, cleanWebpack, htmlPlugin, cssPlugin],
+  plugins: [cleanWebpack, htmlPlugin, cssPlugin],
 };
