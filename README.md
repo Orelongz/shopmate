@@ -71,6 +71,9 @@ Testing is done using:
 
 - `npm run test:server` - for backend testing
 - `npm run test:client` - for client testing
+Kindly note that there is an issue with running some client test. Please do add:
+`"transform-require-context"` to babelrc pluggins.
+
 
 ## Directories
 
