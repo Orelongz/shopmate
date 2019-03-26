@@ -19,8 +19,8 @@ function App() {
             <Route path="/" exact component={HomePage} />
             <Route path="/products/:id" component={ProductPage} />
             <Route path="/cart" component={CartPage} />
-            <GuestRoute path="/signup" component={Auth} />
-            <GuestRoute path="/login" component={Auth} />
+            <GuestRoute path="/signup" exact component={Auth} />
+            <GuestRoute path="/login" exact component={Auth} />
             <Route path="*" component={NotFound} />
           </Switch>
         </main>

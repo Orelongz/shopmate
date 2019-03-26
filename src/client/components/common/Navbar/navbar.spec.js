@@ -19,6 +19,8 @@ let props2;
 const setup2 = () => {
   props2 = {
     search: 'some string',
+    email: '',
+    name: '',
     cart: [],
     logout: jest.fn(() => Promise.resolve()),
     setSearch: jest.fn(() => Promise.resolve()),

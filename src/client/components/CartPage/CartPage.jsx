@@ -136,12 +136,14 @@ export class CartPage extends Component {
                   </tbody>
                 </table>
 
-                <div className="container d-flex space-between mt-50">
+                <div className="container d-flex space-between mt-50" style={{ flexDirection: 'column' }}>
                   <div>
                     <p>
                       Total:
                       {totalPrice}
                     </p>
+
+                    <button className="clear-cart" type="button" onClick={clearProductsFromCart}>Clear Cart</button>
                   </div>
                   <div>
                     <p>Choose shipping type</p>
@@ -155,23 +157,27 @@ export class CartPage extends Component {
                       }
                     </select>
                   </div>
+                  <hr />
                   <div>
-                    <p>
-                      Grand Total:
-                      {grandTotal}
-                    </p>
+                    Grand Total (Price plus shipping cost):
+                    <b> {grandTotal}</b>
                   </div>
 
-                  <button className="clear-cart" type="button" onClick={clearProductsFromCart}>Clear Cart</button>
-
                   <div>
-                    <StripeCheckout
-                      name="Shopmate"
-                      stripeKey="pk_test_r3aQRWlHCHsVxvIYWCSvQ4wk00DB8DgFOK"
-                      token={this.onToken}
-                      amount={grandTotal * 100}
-                      email={email}
-                    />
+                    {
+                      email
+                        ? (
+                          <StripeCheckout
+                            name="Shopmate"
+                            stripeKey="pk_test_r3aQRWlHCHsVxvIYWCSvQ4wk00DB8DgFOK"
+                            token={this.onToken}
+                            amount={grandTotal * 100}
+                            email={email}
+                          />
+                        ) : (
+                          <b>Kindly Login or signup to chechout products in cart</b>
+                        )
+                    }
                   </div>
                 </div>
               </Fragment>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import shortId from 'shortid';
 import './HomePage.scss';
@@ -9,7 +10,6 @@ import { getCategories } from '../../actions/category';
 import { addProductToCart, removeProductFromCart } from '../../actions/cart';
 import Paginate from '../../utils/paginate';
 import Product from './Product';
-import Alert from '../Messages/Alert';
 
 const propTypes = {
   setSearch: PropTypes.func.isRequired,
@@ -33,7 +33,6 @@ const propTypes = {
   cart: PropTypes.arrayOf(
     PropTypes.shape({})
   ).isRequired,
-  displayError: PropTypes.string.isRequired,
 };
 
 export class HomePage extends Component {
@@ -144,7 +143,7 @@ export class HomePage extends Component {
   render() {
     const {
       products, departments, categories,
-      paginate, search, cart, displayError
+      paginate, search, cart,
     } = this.props;
     const { currentPage, count, limit } = paginate;
     const { department, category } = this.state;
@@ -158,11 +157,11 @@ export class HomePage extends Component {
               <span>Shopmate</span>
               Taking the lead for ecommerce fineness
             </div>
-            <div className="view-all-products">View All Products</div>
+            <div className="view-cart">
+              <Link to="/cart">View Cart</Link>
+            </div>
           </div>
         </section>
-
-        {displayError && <Alert text={displayError} type="danger" />}
 
         <section className="content">
           <div className="product-listing-container">
@@ -213,7 +212,7 @@ export class HomePage extends Component {
                           (search || category > 0 || department > 0) && <button type="button" onClick={this.clearSearch} className="reset-filter">Clear</button>
                         }
                       </div>
-                      <div className="d-flex products-listing">
+                      <div className="products-listing">
                         {
                           products.map(product => (
                             <div className="product" key={shortId.generate()}>
@@ -285,7 +284,6 @@ const mapStateToProps = state => ({
   paginate: state.productReducer.paginate,
   departments: state.departmentReducer.departments,
   categories: state.categoryReducer.categories,
-  displayError: state.productReducer.error,
   cart: state.cartReducer.cart,
 });
 

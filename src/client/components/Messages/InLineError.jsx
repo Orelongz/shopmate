@@ -6,7 +6,7 @@ const propTypes = {
 };
 
 function InlineError({ text }) {
-  return (<p className="">{text}</p>);
+  return (<small style={{ lineHeight: '16px', color: 'rgb(224, 48, 77)' }}>{text}</small>);
 }
 
 InlineError.propTypes = propTypes;

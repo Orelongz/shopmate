@@ -12,7 +12,8 @@ const error = {
 
 let initialState = {
   name: '',
-  email: ''
+  email: '',
+  error: '',
 };
 let state;
 
@@ -33,7 +34,7 @@ describe('user reducer', () => {
   });
 
   it('should handle SIGN_IN_FAILED', () => {
-    state = { error };
+    state = { ...initialState, error };
 
     expect(reducer(initialState, {
       type: types.SIGN_IN_FAILED,

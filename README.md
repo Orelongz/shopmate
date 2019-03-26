@@ -2,13 +2,13 @@
 Shopmate is an  e-commerce system which allows users to search, add items to their shopping cart, create order and checkout successfully.
 
 ## Hosted Application
-
+https://shop-o-mate.herokuapp.com/
 
 ## Installation
 1. Clone the repo and cd into it
 ```
 git clone https://github.com/Orelongz/shopmate.git
-cd Shopmate
+cd shopmate
 ```
 
 2. Install all dependencies

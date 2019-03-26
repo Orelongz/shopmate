@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import InLineError from '../Messages/InLineError';
+import Alert from '../Messages/Alert';
 
 const propTypes = {
   handleLogin: PropTypes.func.isRequired,
@@ -9,14 +11,19 @@ const propTypes = {
   isLoading: PropTypes.bool.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  newRoute: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  serverError: PropTypes.string.isRequired,
 };
 
 
 function Login({
-  isLoading, errors, handleLogin, onChange, email, password
+  isLoading, errors, handleLogin, onChange, email,
+  password, url, newRoute, serverError
 }) {
   return (
     <div className="auth-container">
+      { serverError && <Alert text={serverError} />}
       <h3 className="text-center">LOGIN</h3>
       <form onSubmit={handleLogin} className="login-form">
         <div className="">
@@ -56,6 +63,9 @@ function Login({
         >
           Sign In
         </button>
+        <div>
+          Don't have an account? <Link to={url} className="link">{newRoute}</Link>
+        </div>
       </form>
     </div>
   );

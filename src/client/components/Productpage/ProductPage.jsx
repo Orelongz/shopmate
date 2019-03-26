@@ -103,7 +103,6 @@ ProductPage.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   product: state.productReducer.product,
-  displayError: state.productReducer.error,
   cart: state.cartReducer.cart,
 });
 

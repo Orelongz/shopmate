@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { signup, login } from '../../actions/auth';
 import { validate } from '../../services';
 import Login from '../Forms/Login';
@@ -13,9 +12,7 @@ const propTypes = {
   login: PropTypes.func.isRequired,
   location: PropTypes.shape({}).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  // isRequestLoading: PropTypes.bool.isRequired,
-  // serverError: PropTypes.string,
-  // userId: PropTypes.string
+  serverError: PropTypes.string.isRequired,
 };
 
 class Auth extends Component {
@@ -98,12 +95,12 @@ class Auth extends Component {
       name, email, password, confirmPassword, showing,
       errors,
     } = this.state;
-    const { isLoading } = this.props;
+    const { isLoading, serverError } = this.props;
     const text = showing === 'login' ? 'Signup' : 'Login';
     const url = showing === 'login' ? '/signup' : '/login';
 
     return (
-      <div>
+      <div className="auth">
         {
           showing === 'login'
             ? (
@@ -114,6 +111,9 @@ class Auth extends Component {
                 isLoading={isLoading}
                 onChange={this.onChange}
                 handleLogin={this.handleLogin}
+                newRoute={text}
+                url={url}
+                serverError={serverError}
               />
             )
             : (
@@ -126,14 +126,12 @@ class Auth extends Component {
                 onChange={this.onChange}
                 handleSignup={this.handleSignup}
                 confirmPassword={confirmPassword}
+                newRoute={text}
+                url={url}
+                serverError={serverError}
               />
             )
         }
-        <div>
-          <Link to={url}>
-            {text}
-          </Link>
-        </div>
       </div>
     );
   }
@@ -143,6 +141,7 @@ Auth.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   isLoading: state.loadingReducer.requestLoading,
+  serverError: state.userReducer.error,
 });
 
 export default connect(mapStateToProps, {

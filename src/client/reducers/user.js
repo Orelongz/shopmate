@@ -8,6 +8,7 @@ import {
 const initialState = {
   name: '',
   email: '',
+  error: ''
 };
 
 function userReducer(state = initialState, action = {}) {
@@ -17,7 +18,7 @@ function userReducer(state = initialState, action = {}) {
     case FETCH_USER_DETAILS:
       return action.credentials;
     case SIGN_IN_FAILED:
-      return { error: action.error };
+      return { ...state, error: action.error };
     default:
       return state;
   }

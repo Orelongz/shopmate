@@ -23,7 +23,12 @@ const handleValidation = (res, inputObject) => {
 
 
 const handleErrorMessage = (res, error) => {
-  console.log(error);
+  if (error.errors) {
+    return res.status(400).json({
+      error: error.errors.map(eachError => eachError.message)
+    });
+  }
+  return res.status(400).json({ error });
 };
 
 const key = Buffer.from(BUFFER, ENCODING);

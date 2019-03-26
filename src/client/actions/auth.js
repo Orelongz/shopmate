@@ -32,6 +32,10 @@ export const signup = (credentials, props) => (dispatch) => {
     .catch((error) => {
       dispatch(failedRequest(SIGN_IN_FAILED, handleErrorCatch(error.response.data)));
       dispatch(isLoading(IS_REQUEST_LOADING, false));
+      // clear error in 2 secs
+      setTimeout(() => {
+        dispatch(failedRequest(SIGN_IN_FAILED, handleErrorCatch({ error: '' })));
+      }, 3000);
     });
 };
 
@@ -51,6 +55,10 @@ export const login = (credentials, props) => (dispatch) => {
     .catch((error) => {
       dispatch(failedRequest(SIGN_IN_FAILED, handleErrorCatch(error.response.data)));
       dispatch(isLoading(IS_REQUEST_LOADING, false));
+      // clear error in 2 secs
+      setTimeout(() => {
+        dispatch(failedRequest(SIGN_IN_FAILED, handleErrorCatch({ error: '' })));
+      }, 3000);
     });
 };
 
@@ -59,6 +67,10 @@ export const userDetails = () => dispatch => (
     .userDetails()
     .then((customer) => {
       dispatch(successfulRequest(FETCH_USER_DETAILS, customer));
+    })
+    .catch(() => {
+      localStorage.removeItem('shopmateToken');
+      setAuthToken();
     })
 );
 

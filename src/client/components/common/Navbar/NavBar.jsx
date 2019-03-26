@@ -51,7 +51,7 @@ export class NavBar extends Component {
           <li>Men</li>
           <li>Kids</li>
           <li id="brand">
-            <Link to="/">shopmate</Link>
+            <Link to="/">Shopmate</Link>
           </li>
           <li>
             <form id="search-form" onSubmit={this.handleSearch}>

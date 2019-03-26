@@ -4,14 +4,12 @@ import FlashMessage from 'react-flash-message';
 
 const propTypes = {
   text: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
 };
 
-function Alert({ text, type }) {
-  const className = `alert alert-${type} text-center`;
+function Alert({ text }) {
   return (
     <FlashMessage>
-      <div className={className} role="alert">
+      <div className="text-center" role="alert" style={{ color: 'white', backgroundColor: 'rgb(224, 48, 77)' }}>
         {text}
       </div>
     </FlashMessage>
